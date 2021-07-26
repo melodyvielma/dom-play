@@ -1,1 +1,131 @@
-<h1>DOM Play</h1>
+<html>
+    <head>
+        <style>
+            div#play span{
+                background-color:rgb(160, 196, 250);
+            }
+            * {padding:0; margin:0;}
+
+            h1{
+                font-family: Snell Roundhand, cursive;
+                font-size: 60px;
+                text-align: center;
+            }
+
+            #image{
+                position: absolute;
+                left: 880px;
+                bottom: 20px;
+            }
+
+            footer{
+                font-size: 10px;
+            }
+
+            html {background-color:rgb(40, 69, 158);}
+            body {
+                font-family: Arial, Helvetica, sans-serif;
+                max-width:960px; 
+                width:90%; 
+                margin:auto; 
+                background-color:#fff;
+                padding:20px;
+                min-height:100%; 
+                }
+            img.flexible {
+                float:right;
+                display:inline-block;
+                padding:20px;
+                max-width:300px; 
+                width:33%; 
+            }
+            p {margin:10px;}
+            h1,h2,h3,h4,h5,h6{
+                font-weight:normal;
+                margin:10px;
+                }
+            h1.masthead {margin-top:0;}
+            footer {
+                text-align:center;
+                clear:both; 
+                }
+            nav{
+                text-align:center; 
+            }
+            
+            nav ul {
+                    list-style:none; 
+                }
+            nav ul li
+                {
+                    display:inline-block;
+                    margin:0 2%;
+                }
+            nav a:hover{
+                text-decoration: none;
+            }	
+        </style>
+    </head>
+    <body>
+        <h1><strong>DOM Play</strong></h1>
+        <p>This page serves as a reference for actors to highlight their lines when clicked on.</p><br>
+        <h2>Corpse Bride: Scene 12</h2>
+
+        <img id="image" src= images/pic.jpg alt="Corpse Bride Movie Cover" width="240px">
+
+        <div id="play">
+            <p><span data-actor="victor"> Victor: Victoria.</span></p>
+            <p><span data-actor="victoria"> Victoria: Victor? I'm so happy to see you. Come by the fire. Where
+                have you been? Are you all right?
+            </span></p>
+            <p><span data-actor="victor"> Victor: I... I...</span></p>
+            <p><span data-actor="victoria"> Victoria: Oh, dear. You're as cold as death. What's happened
+                to you? Your coat.
+            </span></p>
+            <p><span data-actor="victor"> Victor: Victoria, I confess... This morning I was terrified of marriage.
+                But then, on meeting you, I felt I should be with you always... and that our wedding 
+                could not come soon enough.
+            </span></p>
+            <p><span data-actor="victoria"> Victoria: Victor, I feel the same</span></p>
+            <p><span data-actor="victor"> Victor: Victoria, I se... I se... I seem to find myself married.
+                And you should know it's unexpected.</span></p>
+            <p><span data-actor="emily"> Emily: My darling, I just wanted to meet...
+                 Darling? Who's this?</span></p>
+            <p><span data-actor="victoria"> Victoria: Who is she?</span></p>
+            <p><span data-actor="emily"> Emily: I'm his wife.</span></p>
+            <p><span data-actor="victoria"> Victoria: Victor?</span></p>
+            <p><span data-actor="victor"> Victor: Victoria, wait. You don't understand. She's dead. Look.</span></p>
+            <p><span data-actor="emily"> Emily: Hopscotch.</span></p>
+            <p><span data-actor="victor"> Victor: No! No! Victoria!</span></p>
+        </div>
+        <script>
+
+            const spans = document.querySelectorAll("div#play span");
+
+            for(const mySpan of spans){
+                mySpan.addEventListener('click',function(ev){
+                    //alert(mySpan.dataset.actor);
+                    highlightActor(mySpan.dataset.actor);
+                });
+            }
+
+            function highlightActor(myActor){
+
+                for(const mySpan of spans){
+                    if(myActor == mySpan.dataset.actor){
+                        mySpan.style.backgroundColor = 'rgb(160, 196, 250)';
+                    }
+                    else{
+                        mySpan.style.backgroundColor = 'white';
+                    }
+                }
+            }
+        </script>
+
+    <footer>
+        <p>&copy; 2021 All Rights Reserved ~ <a href="https://validator.w3.org/nu/?doc=https://ndeshong.github.io/dom-play/" target="_blank">Check HTML</a> ~ <a href="https://jigsaw.w3.org/css-validator/check?uri=referer" target="_blank">Check CSS</a></p>
+    </footer>
+
+    </body>
+
+</html>
